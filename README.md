@@ -43,5 +43,5 @@ python main.py gen ./project -o project.md5
 python main.py check project.md5
 ```
 
-[演示](./video/MD5-Checker.mp4)
+[![MD5-Checker]](/video/MD5-Checker.mp4)
 如果它帮到了你，还请赏个star喵~
