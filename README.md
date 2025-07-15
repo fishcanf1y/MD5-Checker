@@ -9,7 +9,7 @@ MD5 Checker是一个用于计算并校验文件MD5值的小工具，它基于Pyt
 - 验证文件MD5值
 - 生成目录的MD5校验文件
 - 验证MD5校验文件
-- updating
+- updating...
 
 # 安装
 ```bash
