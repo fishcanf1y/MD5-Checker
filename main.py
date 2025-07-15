@@ -10,13 +10,11 @@ DEFAULT_BLOCK_SIZE = 65536  # 64KB块大小
 MD5_FILE_EXTENSION = '.md5'
 
 
+# 计算文件的MD5哈希值
+# :param file_path: 文件路径
+# :param block_size: 读取块大小(字节)
+# :return: MD5字符串(失败返回None)
 def calculate_md5(file_path: str, block_size: int = DEFAULT_BLOCK_SIZE) -> Optional[str]:
-    """
-    计算文件的MD5哈希值
-    :param file_path: 文件路径
-    :param block_size: 读取块大小(字节)
-    :return: MD5字符串(失败返回None)
-    """
     if not os.path.isfile(file_path):
         print(f"错误: 文件不存在 - {file_path}", file=sys.stderr)
         return None
@@ -32,22 +30,18 @@ def calculate_md5(file_path: str, block_size: int = DEFAULT_BLOCK_SIZE) -> Optio
         return None
 
 
+# 批量计算MD5值
+# :param file_list: 文件路径列表
+# :return: 字典{文件路径: MD5值}
 def batch_calculate_md5(file_list: List[str]) -> Dict[str, Optional[str]]:
-    """
-    批量计算MD5值
-    :param file_list: 文件路径列表
-    :return: 字典{文件路径: MD5值}
-    """
     return {file_path: calculate_md5(file_path) for file_path in file_list}
 
-
+# 验证文件MD5值
+# :param file_path: 文件路径
+# :param expected_md5: 预期MD5值
+# :return: 是否匹配
 def verify_md5(file_path: str, expected_md5: str) -> bool:
-    """
-    验证文件MD5值
-    :param file_path: 文件路径
-    :param expected_md5: 预期MD5值
-    :return: 是否匹配
-    """
+
     actual_md5 = calculate_md5(file_path)
     if actual_md5 is None:
         return False
@@ -60,13 +54,11 @@ def verify_md5(file_path: str, expected_md5: str) -> bool:
     return is_match
 
 
+# 生成目录的MD5校验文件
+# :param directory: 目录路径
+# :param output_file: 输出文件路径(默认: 目录名.md5)
+# :return: 是否成功
 def generate_md5_file(directory: str, output_file: str = None) -> bool:
-    """
-    生成目录的MD5校验文件
-    :param directory: 目录路径
-    :param output_file: 输出文件路径(默认: 目录名.md5)
-    :return: 是否成功
-    """
     if not os.path.isdir(directory):
         print(f"错误: 目录不存在 - {directory}", file=sys.stderr)
         return False
