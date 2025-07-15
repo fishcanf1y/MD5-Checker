@@ -64,8 +64,7 @@ python main.py gen ./project -o project.md5
 python main.py check project.md5
 ```
 # TODO
-- [ ] 支持更多哈希算法
-- 当前仅支持`MD5`,可以扩展支持`SHA-1`, `SHA-256`, `SHA-512`, `Blake2`等算法
+- [ ] 支持更多哈希算法(当前仅支持`MD5`,可以扩展支持`SHA-1`, `SHA-256`, `SHA-512`, `Blake2`等算法)
 - [ ] 多线程/多进程加速
 - [ ] 生成/验证 SFV 或 JSON 格式
 - [ ] API 服务：用 Flask 提供 HTTP 接口，远程调用哈希计算。
